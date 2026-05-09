@@ -146,17 +146,6 @@ streamlit run app.py
 
 ---
 
-## 🔐 Environment Variables
-
-Create a `.env` file in the project root:
-
-```env
-ANTHROPIC_API_KEY=your_key_here
-RESEND_API_KEY=your_key_here
-```
-
----
-
 ## 📈 Dataset
 
 The project was trained using a handwriting image dataset containing over 150,000 images focused on dyslexia-related reversal patterns.
@@ -188,16 +177,6 @@ This project was developed as part of a Final Year Project focused on:
 * Human-computer interaction
 * AI ethics
 * Dyslexia screening support systems
-
----
-
-### Dashboard
-
-<img width="1200" alt="LexiLens Dashboard" src="https://github.com/user-attachments/assets/example-dashboard" />
-
-### Model Insights
-
-<img width="1200" alt="Model Insights" src="https://github.com/user-attachments/assets/example-insights" />
 
 ---
 
