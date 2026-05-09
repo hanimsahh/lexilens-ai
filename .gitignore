@@ -4,7 +4,11 @@ __pycache__/
 .ipynb_checkpoints/
 *.pyc
 .DS_Store
+
 *.pkl
+!scaler.pkl
+!label_encoder.pkl
+
 *.h5
 Gambo/
 graphs.zip
