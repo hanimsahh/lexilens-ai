@@ -1,0 +1,11 @@
+dyslexia_env/
+.env
+__pycache__/
+.ipynb_checkpoints/
+*.pyc
+.DS_Store
+*.pkl
+*.h5
+Gambo/
+graphs.zip
+lexilens.db
