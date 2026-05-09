@@ -2345,14 +2345,14 @@ elif active_page == "📊 Model Insights":
     st.dataframe(df,use_container_width=True,hide_index=True)
 
     graphs = {
-        "Confusion Matrix":    ("cm_best_classical.png",    "Shows how well the model classifies each pattern. Diagonal = correct predictions."),
-        "ROC / AUC":           ("roc_auc_classical.png",    "Area under curve measures discrimination ability. Closer to 1.0 = better."),
-        "Calibration":         ("calibration_curve_before.png", "Shows whether confidence scores match actual accuracy."),
-        "Feature Importance":  ("feature_importance.png",   "Pixel regions most influential in the model's decisions."),
-        "Learning Curve":      ("learning_curve.png",       "Shows how accuracy improves with more training data."),
-        "CNN Training":        ("cnn_training_history.png", "Training and validation accuracy across epochs."),
-        "Model Comparison":    ("model_comparison.png",     "Side-by-side accuracy and F1 comparison across all models."),
-        "t-SNE / PCA":         ("viz_pca_tsne.png",         "2D visualisation of how the model separates the three pattern classes."),
+        "Confusion Matrix":    ("assets/graphs/cm_best_classical.png",    "Shows how well the model classifies each pattern. Diagonal = correct predictions."),
+        "ROC / AUC":           ("assets/graphs/roc_auc_classical.png",    "Area under curve measures discrimination ability. Closer to 1.0 = better."),
+        "Calibration":         ("assets/graphs/calibration_curve_before.png", "Shows whether confidence scores match actual accuracy."),
+        "Feature Importance":  ("assets/graphs/feature_importance.png",   "Pixel regions most influential in the model's decisions."),
+        "Learning Curve":      ("assets/graphs/learning_curve.png",       "Shows how accuracy improves with more training data."),
+        "CNN Training":        ("assets/graphs/cnn_training_history.png", "Training and validation accuracy across epochs."),
+        "Model Comparison":    ("assets/graphs/model_comparison.png",     "Side-by-side accuracy and F1 comparison across all models."),
+        "t-SNE / PCA":         ("assets/graphs/viz_pca_tsne.png",         "2D visualisation of how the model separates the three pattern classes."),
     }
 
     available = {k: v for k, (v, _) in graphs.items() if os.path.exists(v)}
