@@ -1233,16 +1233,16 @@ def render_result(label, conf, probs):
 
 
 # ══════════════════════════════════════════════════════════
-# AUTH PAGES — ORTAK CSS
+# AUTH PAGES — Common CSS
 # ══════════════════════════════════════════════════════════
 
 AUTH_CSS = """
 <style>
-/* ── Tüm auth sayfaları için genel reset ── */
+/* ── general reset for all auth pages ── */
 header[data-testid="stHeader"]   { display: none !important; }
 [data-testid="stToolbar"]        { display: none !important; }
 
-/* Auth sayfalarında sidebar'ı gizle */
+/* remove sidebar on auth pages */
 [data-testid="stSidebar"]        { display: none !important; }
 
 .block-container {
@@ -1254,7 +1254,7 @@ section.main > div {
     padding: 0 !important;
 }
 
-/* ── TAM EKRAN ARKA PLAN ── */
+/* ── full page background ── */
 .auth-bg {
     position: fixed;
     inset: 0;
@@ -1266,7 +1266,7 @@ section.main > div {
     pointer-events: none;
 }
 
-/* dekoratif daireler */
+/* decorative circles */
 .auth-bg::before {
     content: '';
     position: absolute;
@@ -1286,7 +1286,7 @@ section.main > div {
     filter: blur(60px);
 }
 
-/* ── İÇERİK WRAPPER ── */
+/* ── Contents Wrapper ── */
 .auth-center {
     position: fixed;
     inset: 0;
@@ -1295,10 +1295,10 @@ section.main > div {
     align-items: center;
     justify-content: center;
     z-index: 1;
-    pointer-events: none;   /* sadece görsel — Streamlit widgetları üstte */
+    pointer-events: none;   /* just image — Streamlit widgets above */
 }
 
-/* ── KART ── */
+/* ── CARD ── */
 .auth-card {
     background: rgba(255,255,255,0.88);
     backdrop-filter: blur(24px);
@@ -1341,7 +1341,7 @@ section.main > div {
     text-align: center; margin-bottom: 0; line-height: 1.55;
 }
 
-/* ── FORM override: auth sayfalarında form kutu görünümü ── */
+/* ── FORM override: form box appearance on auth pages ── */
 .auth-form-wrap [data-testid="stForm"] {
     background: transparent !important;
     border: none !important;
@@ -1389,7 +1389,7 @@ section.main > div {
     font-size: 12px; font-weight: 600; color: #4f46e5;
 }
 
-/* ── STATS ŞERİDİ ── */
+/* ── STATS line ── */
 .stats-strip {
     display: flex; justify-content: center; gap: 32px;
     background: rgba(255,255,255,0.80);
@@ -1401,7 +1401,7 @@ section.main > div {
 .stat-lbl  { font-size: 10px; color: #9ca3af; letter-spacing: 1.5px; text-transform: uppercase; margin-top: 3px; }
 .stat-sep  { width: 1px; background: rgba(99,102,241,0.15); }
 
-/* ── Streamlit buton konumlandırma (welcome) ── */
+/* ── Streamlit button placement (welcome) ── */
 .welcome-btn-row {
     display: flex; justify-content: center; gap: 12px;
     margin: 28px auto 0; max-width: 340px;
@@ -1630,7 +1630,7 @@ if not st.session_state.logged_in:
         show_register()
     st.stop()
 
-# ── SIDEBAR — sadece login sonrası ───────────────────────
+# ── SIDEBAR — ONLY after login ───────────────────────
 with st.sidebar:
     if not st.session_state.get("logged_in", False):
         st.stop()
@@ -1772,7 +1772,7 @@ active_page = st.session_state.current_page
 
 if active_page == "🏠 Dashboard":
 
-    # 1. HERO — tam genişlik
+    # 1. HERO 
     st.markdown("""
     <div class="card" style="padding:32px;background:linear-gradient(180deg,#4338ca 0%, #312e81 100%);color:white;overflow:hidden;position:relative;margin-bottom:4px;">
     <div style="position:absolute;right:-60px;top:-60px;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,0.08);"></div>
@@ -1785,7 +1785,7 @@ if active_page == "🏠 Dashboard":
     </div>
     """, unsafe_allow_html=True)
 
-    # 2. ETHICAL NOTICE — tam genişlik, ince
+    # 2. ETHICAL NOTICE
     st.markdown("""
     <div style="background:rgba(99,102,241,0.06);border:1px solid rgba(99,102,241,0.15);
                 border-left:4px solid #6366f1;border-radius:10px;
@@ -1799,7 +1799,7 @@ if active_page == "🏠 Dashboard":
     </div>
     """, unsafe_allow_html=True)
 
-    # 3. STAT KARTLARI — 4 kolon
+    # 3. STAT Cards — 4 colon
     h = st.session_state.history
     total  = len(h)
     n_norm = sum(1 for x in h if x["label"]=="Normal")
@@ -1818,7 +1818,7 @@ if active_page == "🏠 Dashboard":
 
     st.markdown("<div style='height:16px'></div>", unsafe_allow_html=True)
 
-    # 4. ORTA KISIM — sol: How It Works, sağ: Grafik
+    # 4. Middle part — left: How It Works, right: Grafik
     col_left, col_right = st.columns([1, 1], gap="large")
 
     with col_left:
@@ -1879,7 +1879,7 @@ if active_page == "🏠 Dashboard":
 
     st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
 
-    # 5. PLATFORM FEATURES — 2 kolon
+    # 5. PLATFORM FEATURES — 2 collon
     st.markdown('<div class="ey">Platform Features</div>', unsafe_allow_html=True)
     f1, f2 = st.columns(2)
     with f1:
@@ -1905,7 +1905,7 @@ if active_page == "🏠 Dashboard":
         </div>
         """, unsafe_allow_html=True)
 
-    # 6. GEÇMİŞ — tam genişlik
+    # 6. History 
 
     if h:
         st.markdown("<div style='height:8px'></div>", unsafe_allow_html=True)
@@ -2276,7 +2276,7 @@ elif active_page == "🤖 AI Assistant":
 
     sugs=["What does a Reversal mean?","Should I see a specialist?","What is dyslexia?","How accurate is this tool?"]
 
-    # Guided test sonucu varsa butona ekle
+    # Adding to the button if there is a guided test result
     if st.session_state.get("chat_ctx"):
         sugs = ["📊 Analyse my results"] + sugs[:3]
 
